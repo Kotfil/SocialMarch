@@ -1,13 +1,15 @@
 import React from 'react';
-import './App.css';
 
 const Header = () => {
     return (
         <div className="header">
+            <header className='header-img'>
+                <img src='https://s2.logaster.com/static/v3/img/products/logo.png'></img>
+            </header>
            </div>
 
     );
 }
 
 
-export default App;
+export default Header;
