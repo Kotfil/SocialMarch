@@ -7,9 +7,15 @@ const MyPosts = () => {
 
         <div>
             My posts
+            <div >
+                <textarea placeholder='Click'></textarea>
+                <div>
+                    <button>AddPost</button>
+                </div>
             <div>
-                <textarea></textarea>
-                <button>AddPost</button>
+
+            </div>
+
             </div>
             <div className={s.posts}>
                 <Post message='  Filippkins' likesCount='1'/>

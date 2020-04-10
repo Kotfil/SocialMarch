@@ -2,8 +2,14 @@
     grid-area: n;
     background-color: black;
     color: white;
+    padding: 20px;
+
 }
 
 .item {
     color: white;
+
+}
+.item a {
+    text-decoration: none;
 }

@@ -4,10 +4,9 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
-                <img
-                    src='https://www.jssor.com/demos/image-slider/img/faded-monaco-scenery-evening-dark-picjumbo-com-image.jpg'></img>
+                <img src='https://www.jssor.com/demos/image-slider/img/faded-monaco-scenery-evening-dark-picjumbo-com-image.jpg'></img>
             </div>
             <div>
                 ava + 123
