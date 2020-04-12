@@ -2,34 +2,32 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
+const DialogInfo = (props) => {
+    let path = 'dialogs/' + props.id;
+
+    return <div className={s.dialog + ' ' + s.active}>
+        <NavLink to={path}>{props.name}</NavLink>
+    </div>
+};
+
+const MessageInfo = (props) => {
+    return <div className={props.message}>Hi</div>
+}
 const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <div className={s.dialog + ' ' + s.active}>
-                    <NavLink to='dialogs/1'>Oksana</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='dialogs/2'>Marina</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='dialogs/3'>Sasha</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='dialogs/4'>Vitya</NavLink>
-                </div>
-                <div className={s.dialog}>
-                     <NavLink to='dialogs/5'>Vitalik</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to='dialogs/6'>Filipp</NavLink>
-                </div>
-
+                <DialogInfo name='Oksana' id='1'/>
+                <DialogInfo name='Vitaly' id='2'/>
+                <DialogInfo name='Viktor' id='3'/>
+                <DialogInfo name='Marina' id='4'/>
+                <DialogInfo name='Evgen' id='5'/>
+                <DialogInfo name='Sergey' id='6'/>
             </div>
             <div className={s.messages}>
-                <div className={s.dialog}>Hi</div>
-                <div className={s.dialog}>How are you?</div>
-                <div className={s.dialog}>How old are you?</div>
+                <MessageInfo message='Hi'/>
+                <MessageInfo message='How Are You?'/>
+                <MessageInfo message='How old are you?'/>
             </div>
         </div>
 
