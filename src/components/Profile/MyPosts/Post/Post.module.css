@@ -1,5 +1,6 @@
 .item {
 color: gray;
+
 }
 
 .item img {
@@ -8,4 +9,11 @@ color: gray;
     border-radius: 35px;
 }
 
+.item message {
+    margin-top: 15px;
+}
+
+.message {
+    color: red;
+}
 

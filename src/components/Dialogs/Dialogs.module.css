@@ -6,10 +6,11 @@
 
 .dialogs {
 
-    padding: 10px;
+    padding: 5px;
 }
-.dialogsItem {
+.dialogsItems {
 
+    margin: 5px;
     padding: 10px;
 }
 .dialogs .active {
