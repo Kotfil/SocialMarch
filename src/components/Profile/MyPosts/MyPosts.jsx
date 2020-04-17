@@ -12,6 +12,7 @@ const MyPosts = (props) => {
         <div className={s.postsStyle}>
             <h3>My posts</h3>
             <div>
+                <textarea placeholder='...'></textarea>
                 <div className={s.buttonAddPost}>
                     <button>AddPost</button>
                 </div>
