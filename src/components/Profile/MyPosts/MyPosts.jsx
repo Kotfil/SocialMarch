@@ -9,8 +9,9 @@ const MyPosts = (props) => {
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
     let addPost = () => {
-        let text = newPostElement.current.value
-        alert(text);
+
+        let text = newPostElement.current.value;
+        props.addPost(text);
     }
 //post
     return (
