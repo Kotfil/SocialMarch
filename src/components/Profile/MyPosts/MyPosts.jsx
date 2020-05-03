@@ -6,28 +6,30 @@ const MyPosts = (props) => {
 
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
-    let newPostElement = React.createRef();
 
-    let addPost = () => {
-        props.addPost();
-        props.updateNewPostText('');
-    }
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
 
-    }
+
+
+
+    // let onKeyPress = (e) => {
+    //     if(e.key === "Enter") {
+    //
+    //     }
+    //
+    // };
+
     return (
         <div className={s.postsStyle}>
             <h3>My posts</h3>
             <div>
-                <textarea onChange={onPostChange}
-                          ref={newPostElement}
-                          value={props.newPostText}/>
+                <textarea
+
+                    // value={props.updeatePost}
+                />
                 <div className={s.buttonAddPost}>
                     <button
-                        onClick={addPost}>AddPost</button>
+                        onClick={props.addPost}>AddPost</button>
                 </div>
             </div>
             <div className={s.posts}>

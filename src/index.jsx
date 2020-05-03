@@ -1,11 +1,14 @@
-
 import * as serviceWorker from './serviceWorker';
 import {reRenderEntireTree} from "./render";
-import state from "./redux/state";
+import store from "./redux/store";
+import './index.css';
 
 
+store.subscribe(() => {
+    reRenderEntireTree();
+});
 
-reRenderEntireTree(state);
+reRenderEntireTree();
 
 
 serviceWorker.unregister();

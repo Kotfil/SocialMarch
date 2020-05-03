@@ -6,25 +6,18 @@ import DialogItem from "./DialogItem/DialogItem";
 
 const Dialogs = (props) => {
 
+    let dialogsEl = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d+Math.random()}/>);
+    let messagesEl = props.dialogsPage.messages.map(m => <Message messages={m.message} key={m+Math.random()}/>);
 
-    let dialogsEl = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesEl = props.state.messages.map(m => <Message messages={m.message}/>);
+    let onMessageChange = (e) => {
+        props.updateNewMessageText(e.currentTarget.value);
+    };
 
-    let newMessageElement = React.createRef();
-
-    let addMessage = () => {
-
-        props.addMessage();
-        props.updateNewMessageText('');
-    }
-
-    let onMessageChange = () => {
-        let message = newMessageElement.current.value;
-        props.updateNewMessageText(message);
-
-    }
-    //null
-
+    let onKeyPress = (e) => {
+        if (e.key === "Enter") {
+            props.addMessage();
+        }
+    };
 
     return (
         <div className={s.dialogs}>
@@ -36,12 +29,14 @@ const Dialogs = (props) => {
                 {messagesEl}
                 <textarea
                     onChange={onMessageChange}
-                    ref={newMessageElement}
-                    value={props.newMessageText}
-                    placeholder={"Add new message"}></textarea>
+                    onKeyPress={onKeyPress} //Узнать у ментора почему бордер не красный
+                    value={props.dialogsPage.newMessageText}
+                    placeholder={"Add new message"}
+                    className={props.dialogsPage.errorClass ? s.error : ''}
+                />
                 <div>
                     <button
-                        onClick={addMessage}>addMessage
+                        onClick={props.addMessage}>addMessage
                     </button>
                 </div>
 

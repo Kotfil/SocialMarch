@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 
 const App = (props) => {
@@ -16,13 +16,21 @@ const App = (props) => {
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/profile' render={() =>
-                    <Profile profilePage={props.state.profilePage}
-                             addPost={props.addPost}
-                             updateNewPostText={props.updateNewPostText}/>}/>
+                    <Profile
+                        profilePage={props.state.profilePage}
+                        updateNewPostText={props.updateNewPostText}
+                        addPost={props.addPost}
+                        // updeatePost={props.updeatePost}
+                    />
+                }/>
                 <Route path='/dialogs' render={() =>
-                    <Dialogs state={props.state.dialogsPage}
-                             updateNewMessageText={props.updateNewMessageText}
-                             addMessage={props.addMessage}/>}/>
+                    <Dialogs
+                        dialogsPage={props.state.dialogsPage}
+                        updateNewMessageText={props.updateNewMessageText}
+                        addMessage={props.addMessage}
+                        // toggleErrorClass={props.toggleErrorClass}
+                    />
+                }/>
                 <Route path='#'/>
                 <Route path='#'/>
                 <Route path='#'/>
