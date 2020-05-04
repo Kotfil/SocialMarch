@@ -4,38 +4,28 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
-    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p+Math.random()}/>);
 
-
-
-
-
-
-
-    // let onKeyPress = (e) => {
-    //     if(e.key === "Enter") {
-    //
-    //     }
-    //
-    // };
-
+debugger
     return (
         <div className={s.postsStyle}>
             <h3>My posts</h3>
-            <div>
-                <textarea
-
-                    // value={props.updeatePost}
-                />
-                <div className={s.buttonAddPost}>
-                    <button
-                        onClick={props.addPost}>AddPost</button>
-                </div>
-            </div>
             <div className={s.posts}>
                 {postsElements}
             </div>
+            <textarea
+
+                onChange={(e) =>  props.updateNewPostText(e.currentTarget.value) }
+                value={props.profilePage.newPostText}
+                placeholder={"Add new post"}
+            />
+            <div className={s.buttonAddPost}>
+                <button
+                    onClick={props.addPost}>AddPost
+                </button>
+            </div>
         </div>
+
     );
 }
 

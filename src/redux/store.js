@@ -16,7 +16,7 @@ let store = {
                 {id: 0, message: 'Hello friend', likesCount: 12},
                 {id: 1, message: 'How are You?', likesCount: 32},
             ],
-            updeatePost: "sss"
+            newPostText: '',
 
         },
         dialogsPage: {
@@ -40,18 +40,20 @@ let store = {
         }
     },
 
-    addPost() {
-        let newPost = {
-            id: this._state.profilePage.posts.length,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
+    updateNewPostText (value) {
+        this._state.profilePage.newPostText = value;
         this._reRender();
     },
 
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
+    addPost() {
+
+        let newPost = {
+            id: this._state.profilePage.posts.length + 1,
+            message: this._state.profilePage.newPostText,
+            likesCount: 2
+        };
+
+        this._state.profilePage.posts.push(newPost);
         this._reRender();
     },
 
@@ -63,13 +65,11 @@ let store = {
 
     addMessage() {
         if (this._state.dialogsPage.newMessageText.trim() !== '') {
-
             this._state.dialogsPage.errorClass = false;
             let newMessage = {
                 id: this._state.dialogsPage.messages.length + 1,
                 message: this._state.dialogsPage.newMessageText
             };
-
             this._state.dialogsPage.messages.push(newMessage);
             this._state.dialogsPage.newMessageText = '';
             this._reRender();
@@ -80,10 +80,6 @@ let store = {
         }
     },
 
-
-    updeatePost() {
-        return this._state.profilePage.posts;
-    }
 };
 
 

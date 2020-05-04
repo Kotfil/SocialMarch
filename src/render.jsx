@@ -13,7 +13,6 @@ export let reRenderEntireTree = () => {
                 addMessage={store.addMessage.bind(store)}
                 updateNewPostText={store.updateNewPostText.bind(store)}
                 updateNewMessageText={store.updateNewMessageText.bind(store)}
-                // updeatePost={store.updeatePost.bind(store)}
             />
         </BrowserRouter>,
         document.getElementById('root'));

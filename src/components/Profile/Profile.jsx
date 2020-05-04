@@ -7,10 +7,12 @@ import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 const Profile = (props) => {
     return (
         <div>
-            <ProfileInfo />
-            <MyPosts posts={props.profilePage.posts}
-                     addPost={props.addPost}
-                     // updeatePost={props.updeatePost}
+            <ProfileInfo/>
+            <MyPosts
+                profilePage={props.profilePage}
+                addPost={props.addPost}
+                updateNewPostText={props.updateNewPostText}
+                // updeatePost={props.updeatePost}
             />
         </div>
 
