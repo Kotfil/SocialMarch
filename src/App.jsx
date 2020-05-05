@@ -8,9 +8,7 @@ import {Route} from "react-router-dom";
 
 
 const App = (props) => {
-
     return (
-
         <div className="app-wrapper">
             <Header/>
             <Navbar/>
@@ -20,7 +18,6 @@ const App = (props) => {
                         profilePage={props.state.profilePage}
                         updateNewPostText={props.updateNewPostText}
                         addPost={props.addPost}
-                        // updeatePost={props.updeatePost}
                     />
                 }/>
                 <Route path='/dialogs' render={() =>
@@ -28,7 +25,6 @@ const App = (props) => {
                         dialogsPage={props.state.dialogsPage}
                         updateNewMessageText={props.updateNewMessageText}
                         addMessage={props.addMessage}
-                        // toggleErrorClass={props.toggleErrorClass}
                     />
                 }/>
                 <Route path='#'/>

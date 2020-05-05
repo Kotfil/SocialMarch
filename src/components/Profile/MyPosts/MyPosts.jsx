@@ -6,13 +6,10 @@ const MyPosts = (props) => {
 
     let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p+Math.random()}/>);
 
-debugger
     return (
         <div className={s.postsStyle}>
             <h3>My posts</h3>
-            <div className={s.posts}>
-                {postsElements}
-            </div>
+
             <textarea
 
                 onChange={(e) =>  props.updateNewPostText(e.currentTarget.value) }
@@ -23,6 +20,9 @@ debugger
                 <button
                     onClick={props.addPost}>AddPost
                 </button>
+                <div className={s.posts}>
+                    {postsElements}
+                </div>
             </div>
         </div>
 

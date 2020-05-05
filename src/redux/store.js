@@ -3,6 +3,7 @@ let store = {
     _reRender(){},
 
     subscribe(fanc) {
+        console.log('133')
         this._reRender = fanc;
     },
 
@@ -53,7 +54,8 @@ let store = {
             likesCount: 2
         };
 
-        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.posts.unshift(newPost);
+        this._state.profilePage.newPostText = '';
         this._reRender();
     },
 
