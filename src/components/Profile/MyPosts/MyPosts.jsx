@@ -4,21 +4,32 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
-    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p+Math.random()}/>);
+
+    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount}
+                                                               key={p + Math.random()}/>);
+
+    let addPost = () => {
+        props.dispatch({type: "ADD-POST"});
+    };
+
+    let onPostChange = (e) => {
+        let text = e.currentTarget.value;
+        let action = {type: "UPDATE-NEW-POST-TEXT", text: text};
+        props.dispatch(action);
+    };
 
     return (
         <div className={s.postsStyle}>
             <h3>My posts</h3>
 
             <textarea
-
-                onChange={(e) =>  props.updateNewPostText(e.currentTarget.value) }
+                onChange={onPostChange}
                 value={props.profilePage.newPostText}
                 placeholder={"Add new post"}
             />
             <div className={s.buttonAddPost}>
                 <button
-                    onClick={props.addPost}>AddPost
+                    onClick={addPost}>AddPost
                 </button>
                 <div className={s.posts}>
                     {postsElements}

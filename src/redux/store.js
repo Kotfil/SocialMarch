@@ -1,6 +1,7 @@
 let store = {
 
-    _reRender(){},
+    _reRender() {
+    },
 
     subscribe(fanc) {
         console.log('133')
@@ -41,28 +42,10 @@ let store = {
         }
     },
 
-    updateNewPostText (value) {
-        this._state.profilePage.newPostText = value;
-        this._reRender();
-    },
-
-    addPost() {
-
-        let newPost = {
-            id: this._state.profilePage.posts.length + 1,
-            message: this._state.profilePage.newPostText,
-            likesCount: 2
-        };
-
-        this._state.profilePage.posts.unshift(newPost);
-        this._state.profilePage.newPostText = '';
-        this._reRender();
-    },
-
     updateNewMessageText(value) {
-            this._state.dialogsPage.errorClass = false;
-            this._state.dialogsPage.newMessageText = value;
-            this._reRender();
+        this._state.dialogsPage.errorClass = false;
+        this._state.dialogsPage.newMessageText = value;
+        this._reRender();
     },
 
     addMessage() {
@@ -75,12 +58,30 @@ let store = {
             this._state.dialogsPage.messages.push(newMessage);
             this._state.dialogsPage.newMessageText = '';
             this._reRender();
-        }
-        else {
+        } else {
             this._state.dialogsPage.errorClass = true;
             this._reRender();
         }
     },
+
+    dispatch(action) {
+
+        if (action.type === "ADD-POST") {
+            let newPost = {
+                id: this._state.profilePage.posts.length + 1,
+                message: this._state.profilePage.newPostText,
+                likesCount: 2
+            };
+
+            this._state.profilePage.posts.unshift(newPost);
+            this._state.profilePage.newPostText = '';
+            this._reRender();
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.profilePage.newPostText = action.text;
+            this._reRender();
+        }
+
+    }
 
 };
 
