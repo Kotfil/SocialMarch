@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
+import {addMessageActionCreator,updateNewMessageActionCreator} from "../../redux/store";
 
 
 const Dialogs = (props) => {
@@ -9,13 +10,19 @@ const Dialogs = (props) => {
     let dialogsEl = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d+Math.random()}/>);
     let messagesEl = props.dialogsPage.messages.map(m => <Message messages={m.message} key={m+Math.random()}/>);
 
+    let addMessage = () => {
+        props.dispatch(addMessageActionCreator());
+    };
+
     let onMessageChange = (e) => {
-        props.updateNewMessageText(e.currentTarget.value);
+        let post = e.currentTarget.value;
+        let action = updateNewMessageActionCreator(post);
+        props.dispatch(action);
     };
 
     let onKeyPress = (e) => {
         if (e.key === "Enter") {
-            props.addMessage();
+            addMessage();
         }
     };
 
@@ -36,7 +43,7 @@ const Dialogs = (props) => {
                 />
                 <div>
                     <button
-                        onClick={props.addMessage}>addMessage
+                        onClick={addMessage}>addMessage
                     </button>
                 </div>
 

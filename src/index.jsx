@@ -15,8 +15,6 @@ let renderAll = () => {
             <App
                 state={store.getState()}
                 dispatch={store.dispatch.bind(store)}
-                addMessage={store.addMessage.bind(store)}
-                updateNewMessageText={store.updateNewMessageText.bind(store)}
             />
         </BrowserRouter>,
         document.getElementById('root'));
