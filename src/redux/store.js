@@ -88,7 +88,7 @@ let store = {
         }
     },
 }
-
+//  edit store
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
