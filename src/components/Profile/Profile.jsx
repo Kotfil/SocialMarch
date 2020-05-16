@@ -5,6 +5,7 @@ import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 // import {addPost} from "../../redux/store";
 
 const Profile = (props) => {
+
     return (
         <div>
             <ProfileInfo/>
