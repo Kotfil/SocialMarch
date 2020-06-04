@@ -6,8 +6,8 @@ import {addMessageActionCreator,updateNewMessageActionCreator} from "../../redux
 
 
 const Dialogs = (props) => {
-
-    let dialogsEl = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d+Math.random()}/>);
+debugger
+    let dialogsEl = props.dialogsPage.map(d => <DialogItem name={d.name} id={d.id} key={d+Math.random()}/>);
     let messagesEl = props.dialogsPage.messages.map(m => <Message messages={m.message} key={m+Math.random()}/>);
 
     let addMessage = () => {

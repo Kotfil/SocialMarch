@@ -9,7 +9,6 @@ let store = {
     },
 
     subscribe(fanc) {
-        console.log('133');
         this._reRender = fanc;
     },
 
