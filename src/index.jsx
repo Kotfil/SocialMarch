@@ -5,17 +5,18 @@ import {BrowserRouter} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import store from "./redux/redux-store";
 import './index.css';
-import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
 
 
 
 
 let renderAll = () => {
     ReactDOM.render(
-        <StoreContext.Provider value={store}>
         <BrowserRouter>
-            <App/>
-        </BrowserRouter></StoreContext.Provider>,
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>,
         document.getElementById('root'));
 };
 

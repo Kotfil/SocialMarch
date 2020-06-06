@@ -26,6 +26,22 @@ let store = {
 
         },
         dialogsPage: {
+            messages: [
+                {id: 1, message: 'Hi'},
+                {id: 2, message: 'How Are You?'},
+                {id: 3, message: 'How old are you?'},
+                {id: 4, message: 'Hjhjkghjghyuj'}
+            ],
+            dialogs: [
+                {id: 1, name: 'Oksana'},
+                {id: 2, name: 'Vitaly'},
+                {id: 3, name: 'Viktor'},
+                {id: 4, name: 'Marina'},
+                {id: 5, name: 'Evgen'},
+                {id: 6, name: 'Sergey'}
+            ],
+            newMessageText: '',
+
 
             errorClass: false
 

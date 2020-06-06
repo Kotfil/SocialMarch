@@ -6,26 +6,11 @@ import {addMessageActionCreator,updateNewMessageActionCreator} from "../../redux
 
 
 const Dialogs = (props) => {
-debugger
-    let dialogsEl = props.dialogsPage.map(d => <DialogItem name={d.name} id={d.id} key={d+Math.random()}/>);
-    let messagesEl = props.dialogsPage.messages.map(m => <Message messages={m.message} key={m+Math.random()}/>);
 
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
-    };
+    let dialogsEl = props.dialogs.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d+Math.random()}/>);
+    let messagesEl = props.dialogs.messages.map(m => <Message messages={m.message} key={m+Math.random()}/>);
 
-    let onMessageChange = (e) => {
-        let post = e.currentTarget.value;
-        let action = updateNewMessageActionCreator(post);
-        props.dispatch(action);
-    };
-
-    let onKeyPress = (e) => {
-        if (e.key === "Enter") {
-            addMessage();
-        }
-    };
-
+    console.log(props.dialogs)
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -35,15 +20,15 @@ debugger
 
                 {messagesEl}
                 <textarea
-                    onChange={onMessageChange}
-                    onKeyPress={onKeyPress} //Узнать у ментора почему бордер не красный
-                    value={props.dialogsPage.newMessageText}
+                    onChange={props.onMessageChange}
+                    onKeyPress={props.onKeyPress} //Узнать у ментора почему бордер не красный
+                    value={props.dialogs.newMessageText}
                     placeholder={"Add new message"}
-                    className={props.dialogsPage.errorClass ? s.error : ''}
+                    className={props.errorClass ? s.error : ''}
                 />
                 <div>
                     <button
-                        onClick={addMessage}>addMessage
+                        onClick={props.addMessage}>addMessage
                     </button>
                 </div>
 

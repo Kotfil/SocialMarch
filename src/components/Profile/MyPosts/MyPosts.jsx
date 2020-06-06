@@ -7,8 +7,7 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
-
-    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}
+    let postsElements = props.profile.posts.map(p => <Post message={p.message} likesCount={p.likesCount}
                                                                key={p + Math.random()}/>);
 
     let onAddPost = () => {
@@ -26,8 +25,8 @@ const MyPosts = (props) => {
             <h3>My posts</h3>
 
             <textarea
-                onChange={onPostChange}
-                value={props.newPostText}
+                onChange={props.onPostChange}
+                value={onPostChange}
                 placeholder={"Add new post"}
             />
             <div className={s.buttonAddPost}>
