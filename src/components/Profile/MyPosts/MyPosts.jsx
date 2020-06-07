@@ -7,17 +7,11 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
-    let postsElements = props.profile.posts.map(p => <Post message={p.message} likesCount={p.likesCount}
-                                                               key={p + Math.random()}/>);
+    let postsElements = props.profile.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id}/>);
 
     let onAddPost = () => {
         props.addPost();
 
-    };
-
-    let onPostChange = (e) => {
-        let text = e.currentTarget.value;
-        props.updateNewPostTextActionCreator(text);
     };
 
     return (
@@ -26,7 +20,7 @@ const MyPosts = (props) => {
 
             <textarea
                 onChange={props.onPostChange}
-                value={onPostChange}
+                value={props.profile.newPostText}
                 placeholder={"Add new post"}
             />
             <div className={s.buttonAddPost}>

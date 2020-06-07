@@ -10,7 +10,6 @@ import {Provider} from "react-redux";
 
 
 
-let renderAll = () => {
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>
@@ -18,11 +17,8 @@ let renderAll = () => {
             </Provider>
         </BrowserRouter>,
         document.getElementById('root'));
-};
 
-store.subscribe(renderAll);
 
-renderAll();
 
 
 serviceWorker.unregister();

@@ -19,8 +19,8 @@ const dispatchToProps = (dispatch) => {
         addPost: () => {
             dispatch(addPostActionCreator());
         },
-        onPostChange: (text) => {
-
+        onPostChange: (e) => {
+            let text = e.currentTarget.value;
             let action = updateNewPostTextActionCreator(text);
             dispatch(action);
             }
