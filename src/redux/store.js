@@ -40,6 +40,8 @@ let store = {
                 {id: 5, name: 'Evgen'},
                 {id: 6, name: 'Sergey'}
             ],
+
+
             newMessageText: '',
 
 

@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 const mapStateToProps = (state) => {
 
     return {
-        profile: state.profile
+        profile: state.profilePage
     }
 
 }
