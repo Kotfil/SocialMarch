@@ -20,7 +20,7 @@ return  {
     })
 }
         case UNFOLLOW:
-            debugger
+
             return  {
                 ...state,
                 users: state.users.map(u => {
