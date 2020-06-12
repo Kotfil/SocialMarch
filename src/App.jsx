@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import UsersC from "./components/Users/UsersAPIComponent";
 import UsersContainer from "./components/Users/UsersContainer";
 
 
