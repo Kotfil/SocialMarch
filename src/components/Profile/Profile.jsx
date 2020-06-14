@@ -1,13 +1,16 @@
 import React from 'react';
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import store from './../../redux/redux-store';
+import Preloader from "../common/Preloader/Preloader";
 
-const Profile = (props) => {
+ const Profile = (props) => {
+
+     if (!props.profile) {
+         return <Preloader />
+     }
     return (
-
         <div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer />
         </div>
 
