@@ -25,7 +25,3 @@ const authReducer = (state = initialState, action) => {
 }
 export const setAuthUserData = (id, email,login) => ({type: SET_USER_DATA, id, email,login});
 export default authReducer;
-
-// case TOGGLE_IS_FETCHING: {
-//     return {...state, isFetching: action.isFetching}
-// }
