@@ -1,13 +1,11 @@
 const SET_USER_DATA = 'SET_USER_DATA';
 
-
 let initialState = {
     id: null,
     email: null,
     login: null,
     isAuth: false
 };
-
 const authReducer = (state = initialState, action) => {
 
     switch (action.type) {
@@ -17,7 +15,6 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.data,
                 isAuth: true
-
         }
         default:
             return state;
