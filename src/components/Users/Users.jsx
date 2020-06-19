@@ -12,6 +12,8 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
+
+
     return <div>
         <div>
             {pages.map(p => {
@@ -32,29 +34,13 @@ let Users = (props) => {
                 </NavLink>
                 <div>
                  {u.followed
-                     ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                         props.toggleFollowingProgress(true, u.id);
-                         usersAPI.unfollow(u.id)
-                             .then(response => {
-                                 if (response.data.resultCode == 0) {
-                                     props.unfollow(u.id);
-                                 }
-                                 props.toggleFollowingProgress(false, u.id);
-                             });
+                     ? <button
+                         disabled={props.followingInProgress.some(id => id === u.id)}
+                         onClick={() => {props.unfollow(u.id);
                      }}>Unfollow</button> :
                      <button
                          disabled={props.followingInProgress.some(id => id === u.id)}
-                         onClick={() => {
-                             props.toggleFollowingProgress(true, u.id);
-                             usersAPI.follow(u.id)
-                                 .then(response => {
-                                     if (response.data.resultCode == 0) {
-                                         props.follow(u.id);
-                                     }
-                                     props.toggleFollowingProgress(false, u.id);
-                                 });
-
-
+                         onClick={() => {props.follow(u.id);
                          }}>Follow</button>}
                 </div>
             </span>
