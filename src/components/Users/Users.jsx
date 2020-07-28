@@ -13,10 +13,13 @@ let Users = (props) => {
         pages.push(i);
         console.log(i);
     }
+
+
     return <div>
         <div>
             {pages.map(p => {
                 return <span className={props.currentPage === p && s.selectedPage}
+
                              onClick={(e) => {
                                  props.onPageChanged(p)
                              }}>{p}</span>
@@ -32,29 +35,13 @@ let Users = (props) => {
                 </NavLink>
                 <div>
                  {u.followed
-                     ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                         props.toggleFollowingProgress(true, u.id);
-                         usersAPI.unfollow(u.id)
-                             .then(response => {
-                                 if (response.data.resultCode == 0) {
-                                     props.unfollow(u.id);
-                                 }
-                                 props.toggleFollowingProgress(false, u.id);
-                             });
+                     ? <button
+                         disabled={props.followingInProgress.some(id => id === u.id)}
+                         onClick={() => {props.unfollow(u.id);
                      }}>Unfollow</button> :
                      <button
                          disabled={props.followingInProgress.some(id => id === u.id)}
-                         onClick={() => {
-                             props.toggleFollowingProgress(true, u.id);
-                             usersAPI.follow(u.id)
-                                 .then(response => {
-                                     if (response.data.resultCode == 0) {
-                                         props.follow(u.id);
-                                     }
-                                     props.toggleFollowingProgress(false, u.id);
-                                 });
-
-
+                         onClick={() => {props.follow(u.id);
                          }}>Follow</button>}
                 </div>
             </span>
